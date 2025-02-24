@@ -10,3 +10,9 @@ Challenge 2 :
 2. Créer une variable d'état "lang" dans App.js
 3. Permettre le changement de la langue dans le composant PageLayout 
 lorsqu'on clique sur une langue dans le footer
+
+Challenge 3 :
+1. Créer un nouveau store shopStore
+2. Y placer l'état isLoading 
+3. Déclencher isLoading shopStore dans la méthode getProducts
+

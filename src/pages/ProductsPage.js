@@ -12,7 +12,7 @@ function ProductsPage({ setPage }) {
   const { isLoading } = useShopStore();
 
   // Avec sélecteur (optimisation)
-  // const products = useProductStore((state) => state.products);
+  const products = useProductStore((state) => state.products);
   // const getProducts = useProductStore((state) => state.getProducts);
 
   useEffect(function () {
