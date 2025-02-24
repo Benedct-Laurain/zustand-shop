@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import PageLayout from "../components/PageLayout.js";
 import ProductCard from "../components/ProductCard.js";
+import useProductStore from "../stores/ProductStore.ts";
 
 function ProductsPage({ setPage }) {
-  const products = [];
+  const { products } = useProductStore();
 
   useEffect(function () {}, []);
 

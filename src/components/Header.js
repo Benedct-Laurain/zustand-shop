@@ -6,7 +6,6 @@ import { useTheme } from "../contexts/ThemeContextHook.js";
 
 function Header({ setPage }) {
   const [isDropdownOpen, setIsDropDownOpen] = useState(false);
-  const { theme } = useContext(ThemeContext);
 
   // const {theme} = useContext(ThemeContext);
   const { theme } = useTheme();

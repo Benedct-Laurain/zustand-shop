@@ -4,6 +4,7 @@ import CardPage from "./pages/CartPage.js";
 import Main from "./components/Main.js";
 import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
+import Counter from "./components/Counter.js";
 import LoginPage from "./pages/LoginPage.js";
 import { useState } from "react";
 import ThemeContext from "./contexts/ThemeContext.js";
@@ -22,6 +23,7 @@ export default function App() {
         <div className="app">
           <Header setPage={setPage} />
           <Main>
+            <Counter />
             {(page === "products-page" && <ProductsPage setPage={setPage} />) ||
               (page === "login-page" && <LoginPage />) ||
               (page === "cart-page" && <CardPage />)}
