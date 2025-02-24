@@ -2,16 +2,14 @@ import { useEffect } from "react";
 import PageLayout from "../components/PageLayout.js";
 import ProductCard from "../components/ProductCard.js";
 
-
-function ProductsPage() {
+function ProductsPage({ setPage }) {
   const products = [];
 
-  useEffect(function () {
-  }, []);
-  
+  useEffect(function () {}, []);
 
   const handleCartClick = (event) => {
     event.preventDefault();
+    setPage("cart-page");
   };
 
   return (
@@ -20,9 +18,10 @@ function ProductsPage() {
         <h2 className="form-title">Sélectionnez votre produit</h2>
         <div className="products-wrapper">
           <div className="row">
-            {products && products.map((product) => (
-              <ProductCard product={product} key={product.id} />
-            ))}
+            {products &&
+              products.map((product) => (
+                <ProductCard product={product} key={product.id} />
+              ))}
           </div>
         </div>
         <button className="btn product-page-button" onClick={handleCartClick}>

@@ -1,5 +1,8 @@
+import { useContext } from "react";
+import LanguageContext from "../contexts/LanguageContext.js";
+
 function PageLayout({ titleFr, titleEn, children }) {
-  const lang = "fr";
+  const { lang } = useContext(LanguageContext);
   return (
     <div>
       <h1 className="page-title">{lang === "fr" ? titleFr : titleEn}</h1>;

@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import ReactLogo from "./logo.png"; // Import the image
 import CartIcon from "./CartIcon.js";
+import ThemeContext from "../contexts/ThemeContext.js";
 
-function Header() {
+function Header({ setPage }) {
   const [isDropdownOpen, setIsDropDownOpen] = useState(false);
+  const { theme } = useContext(ThemeContext);
 
-  const theme = "light";
   const isAuthenticated = false;
   const user = {};
 
@@ -14,12 +15,11 @@ function Header() {
   };
   const handleLogin = () => {
     setIsDropDownOpen(false);
+    setPage("login-page");
   };
-  const handleLogout = () => {
- 
-  };
+  const handleLogout = () => {};
   const handleGoToHomePage = () => {
-
+    setPage("products-page");
   };
 
   return (
@@ -30,7 +30,7 @@ function Header() {
           <span className="header-title">My Shop</span>
         </div>
         <div>
-          <CartIcon />
+          <CartIcon setPage={setPage} />
 
           {isAuthenticated ? (
             <div className="header-user-wrapper">

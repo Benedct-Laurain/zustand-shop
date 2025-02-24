@@ -1,7 +1,8 @@
-function CartIcon() {
+function CartIcon({ setPage }) {
   const items = [];
 
   const handleGoToCart = () => {
+    setPage("cart-page");
   };
 
   const itemsNumber = items.reduce((total, item) => total + item.quantity, 0);
