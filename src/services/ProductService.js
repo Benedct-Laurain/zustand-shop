@@ -12,7 +12,7 @@ export class ProductService {
       return response;
     } catch (error) {
       console.log("error", error);
-      return [];
+      throw Error("Product API error :", error.message);
     }
   };
 }
