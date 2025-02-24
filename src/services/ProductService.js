@@ -6,6 +6,7 @@ export class ProductService {
       );
 
       const response = await fetchProducts.json();
+      // const response = [];
 
       console.log("Products", response);
       return response;

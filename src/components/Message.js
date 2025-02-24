@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useShopStore from "../stores/shopStore.ts";
+import useShopStore from "../stores/ShopStore.ts";
 
 function Message() {
   const { messageText, type } = useShopStore((state) => state.message);

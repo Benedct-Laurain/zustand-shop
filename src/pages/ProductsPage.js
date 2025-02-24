@@ -9,10 +9,10 @@ function ProductsPage({ setPage }) {
 
   // Sans sélecteur
   const { products, getProducts } = useProductStore();
-  const { isLoading } = useShopStore();
+  const isLoading = useShopStore((state) => state.isLoading);
 
   // Avec sélecteur (optimisation)
-  const products = useProductStore((state) => state.products);
+  // const products = useProductStore((state) => state.products);
   // const getProducts = useProductStore((state) => state.getProducts);
 
   useEffect(function () {

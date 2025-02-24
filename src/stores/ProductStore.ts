@@ -35,8 +35,19 @@ const useProductStore = create<ProductState & ProductActions>()((set) => ({
     // set({ isLoading: true});
     const productList = await ProductService.getProductsFromApi();
 
+
+
+    if(productList.length === 0){
+      useShopStore.getState().setMessage({
+        messageText: "Ya pas de produits, pas de dépenses for U today",
+        type: "error"
+      })
+    }
+
     set({ products: productList });
+
     // set({ isLoading: false});
+
     useShopStore.getState().setIsLoading(false)
   },
 }));
