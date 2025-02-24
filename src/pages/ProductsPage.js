@@ -4,9 +4,11 @@ import ProductCard from "../components/ProductCard.js";
 import useProductStore from "../stores/ProductStore.ts";
 
 function ProductsPage({ setPage }) {
-  const { products } = useProductStore();
+  const { products, getProducts } = useProductStore();
 
-  useEffect(function () {}, []);
+  useEffect(function () {
+    getProducts();
+  }, []);
 
   const handleCartClick = (event) => {
     event.preventDefault();

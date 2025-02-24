@@ -1,10 +1,21 @@
 import { create } from "zustand";
+import  Products  from "../api/products/products.json"; 
+
+
 
 interface Product {
-  id: string,
+  id: number,
   title: string,
   price: number,
-  imager: string
+  description: string,
+  image: string,
+  stock: {
+    ref: string,
+    quantity: {
+      country: string, 
+      value: number
+    }
+  }
 }
 
 interface ProductState {
@@ -12,13 +23,13 @@ interface ProductState {
 }
 
 interface ProductActions {
-  setProducts: () => void
+  getProducts: () => void
 }
 
 // custom hook "use..."
 const useProductStore = create<ProductState & ProductActions>()((set) => ({
   products: [],
-  setProducts: () => set(state => ({ products: [] })),
+  getProducts: () => set({ products: Products }),
 }));
 
 export default useProductStore;
