@@ -8,15 +8,17 @@ import LoginPage from "./pages/LoginPage.js";
 import { useState } from "react";
 import ThemeContext from "./contexts/ThemeContext.js";
 import LanguageContext from "./contexts/LanguageContext.js";
+import { ThemeProvider } from "./contexts/ThemeContextHook.js";
 
 export default function App() {
   const [page, setPage] = useState("products-page");
-  const [theme, setTheme] = useState("dark");
-  const [lang, setLang] = useState("en");
+  // const [ theme, setTheme ] = useState("dark");
+  const [lang, setLang] = useState("fr");
 
   return (
     <LanguageContext.Provider value={{ lang, setLang }}>
-      <ThemeContext.Provider value={{ theme, setTheme }}>
+      {/* <ThemeContext.Provider value={{theme, setTheme}}> */}
+      <ThemeProvider>
         <div className="app">
           <Header setPage={setPage} />
           <Main>
@@ -26,7 +28,8 @@ export default function App() {
           </Main>
           <Footer />
         </div>
-      </ThemeContext.Provider>
+      </ThemeProvider>
+      {/* </ThemeContext.Provider> */}
     </LanguageContext.Provider>
   );
 }
