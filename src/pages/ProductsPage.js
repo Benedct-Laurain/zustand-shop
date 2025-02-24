@@ -4,9 +4,23 @@ import ProductCard from "../components/ProductCard.js";
 import useProductStore from "../stores/ProductStore.ts";
 
 function ProductsPage({ setPage }) {
-  const { products, getProducts } = useProductStore();
+  // console.log(useProductStore())
+
+  // Sans sélecteur
+  // const { products, getProducts, getProducts } = useProductStore();
+
+  // Avec sélecteur (optimisation)
+  // const products = useProductStore((state) => state.products);
+  // const getProducts = useProductStore((state) => state.getProducts);
+
+  // Avec sélecteur retournant un objet
+  const { products, getProducts } = useProductStore((state) => ({
+    products: state.products,
+    getProducts: state.getProducts,
+  }));
 
   useEffect(function () {
+    getProducts();
     getProducts();
   }, []);
 
