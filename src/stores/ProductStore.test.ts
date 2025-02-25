@@ -2,7 +2,6 @@ import React from "react";
 import { act, renderHook } from "@testing-library/react";
 import useProductStore from "./ProductStore";
 import { ProductService } from "../services/ProductService.js";
-import useShopStore from "./ShopStore";
 
 const productList = [{
     id: 3,
@@ -44,7 +43,7 @@ const productToAdd = {
     }
 };
 
-jest.mock("./shopStore.ts");
+jest.mock("./ShopStore.ts");
 
 describe("useProductStore", () => {
 
