@@ -1,7 +1,7 @@
 import React from "react";
 import PageLayout from "../components/PageLayout.js";
 import LoginForm from "../components/LoginForm.js";
-import useAuthStore from "../stores/authStore.ts";
+import useAuthStore from "../store/authStore.ts";
 
 function LoginPage() {
   const login = useAuthStore((state) => state.login);
