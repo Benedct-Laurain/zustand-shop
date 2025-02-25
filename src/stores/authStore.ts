@@ -4,6 +4,7 @@ import authLogger from "./authLogger"
 import customSessionStorage from "./storageAuth"
 import AuthService from "../services/AuthService"
 import useShopStore from "./ShopStore"
+import useProductStore from "./ProductStore"
 
 interface Address {
     firstline: string,
@@ -60,6 +61,7 @@ const authStore: StateCreator<AuthState & AuthActions, [["zustand/devtools", nev
             messageText: "Bye bye",
             type: "info"
         })
+        useProductStore.getState().resetCart()
     }
 })
 
