@@ -9,8 +9,10 @@ describe("GIVEN no element in cart", () => {
     render(<CartIcon setPage={() => {}} />);
     // Mocker le store
     useProductStore.mockReturnValue({
-        cartItems: []
-    })
+      cartItems: [],
+    });
+
+    //test
 
     // jest.mock("../store/useProductStore.ts", () => ({
     //   useProductStore: (passedFunction) => {
