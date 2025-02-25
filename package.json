@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": false,
   "type": "module",
+  "homepage": "https://Benedct-Laurain.github.io/zustand-shop",
   "dependencies": {
     "@types/node": "^16.18.126",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "axios": "^1.7.9",
     "babel-jest": "^29.7.0",
+    "gh-pages": "^6.3.0",
     "immer": "^10.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -24,7 +26,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

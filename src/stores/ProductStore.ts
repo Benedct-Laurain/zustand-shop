@@ -12,9 +12,7 @@ interface Product
   description: string,
   image: string,
   stock: {
-    ref: string,
     quantity: {
-      country: string, 
       value: number
     }
   }

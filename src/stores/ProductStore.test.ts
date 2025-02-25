@@ -1,7 +1,8 @@
+import React from "react";
 import { act, renderHook } from "@testing-library/react";
-import useProductStore from "./productStore";
-import ProductService from "../services/ProductService";
-import useShopStore from "./shopStore";
+import useProductStore from "./ProductStore";
+import { ProductService } from "../services/ProductService.js";
+import useShopStore from "./ShopStore";
 
 const productList = [{
     id: 3,
@@ -47,7 +48,7 @@ jest.mock("./shopStore.ts");
 
 describe("useProductStore", () => {
 
-    let mockStaticMethod = jest.fn();
+    const mockStaticMethod = jest.fn();
     ProductService.getProductsFromApi = mockStaticMethod;
 
     describe("initialisation", () => {
@@ -68,10 +69,10 @@ describe("useProductStore", () => {
             // })
 
             // Mocker le shop store
-            const mockSetMessage = jest.fn();
-            useShopStore.mockReturnValue({
-                setMessage: mockSetMessage
-            })
+            // const mockSetMessage = jest.fn();
+            // useShopStore.mockReturnValue({
+            //     setMessage: mockSetMessage
+            // })
         })
         test("Récupération des produits", async () => {
             // GRAVE erreur : ne pas tester trop loin de notre élément cible
