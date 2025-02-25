@@ -7,7 +7,8 @@ function CartIcon({ setPage }) {
     setPage("cart-page");
   };
 
-  const itemsNumber = items.reduce((total, item) => total + item.quantity, 0);
+  const itemsNumber =
+    items && items.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <button className="btn-cart" onClick={handleGoToCart}>

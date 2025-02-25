@@ -22,3 +22,11 @@ Challenge 4 :
 2. Relier le store AuthStore au bouton Se déconnecter
 3. Voir les informations du store dans Redux DevTools
 
+Challenge 5 :
+1. Relier le composant ProductCard au store productStore
+2. Relier le composant CartIcon au store productStore
+3. Relier le composant CartPage au store productStore
+3. Voir les informations du store dans Redux DevTools
+
+
+
