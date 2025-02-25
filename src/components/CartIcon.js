@@ -1,5 +1,7 @@
+import useProductStore from "../stores/ProductStore.ts";
+
 function CartIcon({ setPage }) {
-  const items = [];
+  const items = useProductStore((state) => state.cartItems);
 
   const handleGoToCart = () => {
     setPage("cart-page");

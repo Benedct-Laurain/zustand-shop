@@ -8,8 +8,9 @@ function ProductsPage({ setPage }) {
   // console.log(useProductStore())
 
   // Sans sélecteur
-  const { products, getProducts } = useProductStore();
   const isLoading = useShopStore((state) => state.isLoading);
+  const products = useProductStore((state) => state.products);
+  const getProducts = useProductStore((state) => state.getProducts);
 
   // Avec sélecteur (optimisation)
   // const products = useProductStore((state) => state.products);

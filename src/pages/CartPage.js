@@ -1,7 +1,11 @@
+import React from "react";
 import PageLayout from "../components/PageLayout.js";
+import useProductStore from "../stores/ProductStore.ts";
 
 function CartPage() {
-  const items = [];
+  const items = useProductStore((state) => state.cartItems);
+  const updateQty = useProductStore((state) => state.updateQty);
+  const removeFromCart = useProductStore((state) => state.removeFromCart);
 
   const subtotal =
     items instanceof Array
@@ -31,14 +35,18 @@ function CartPage() {
               <div className="cart-item-buttons">
                 <button
                   className="btn cart-item-edit-qty"
-                  onClick={() => {}}
+                  onClick={() => {
+                    updateQty("decrement", item.id);
+                  }}
                 >
                   -
                 </button>
                 <span className="cart-item-qty">{item.quantity}</span>
                 <button
                   className="btn cart-item-edit-qty"
-                  onClick={() => {}}
+                  onClick={() => {
+                    updateQty("increment", item.id);
+                  }}
                 >
                   +
                 </button>
@@ -46,7 +54,9 @@ function CartPage() {
             </div>
             <button
               className="btn cart-item-remove"
-              onClick={() => {}}
+              onClick={() => {
+                removeFromCart(item.id);
+              }}
             >
               Retirer
             </button>

@@ -1,8 +1,13 @@
+import React from "react";
+import useProductStore from "../stores/ProductStore.ts";
+
 function ProductCard({ product }) {
   const quantity = product.stock?.quantity?.value;
+  const addToCart = useProductStore((state) => state.addToCart);
 
   const handleClick = () => {
-  }
+    addToCart(product);
+  };
 
   return (
     <div className="col">
@@ -15,13 +20,10 @@ function ProductCard({ product }) {
         <div className="product-card-description">
           <h3 className="product-card-title">{product.title}</h3>
           <p className="product-card-price">${product.price.toFixed(2)}</p>
-          { quantity < 1 ? (
+          {quantity < 1 ? (
             <span className="product-card-disable">Indisponible</span>
           ) : (
-            <button
-              onClick={handleClick}
-              className="product-card-button btn"
-            >
+            <button onClick={handleClick} className="product-card-button btn">
               Ajouter au panier
             </button>
           )}
