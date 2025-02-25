@@ -2,7 +2,8 @@ import { create, StateCreator } from "zustand"
 import { createJSONStorage, devtools, persist } from "zustand/middleware"
 import authLogger from "./authLogger"
 import customSessionStorage from "./storageAuth"
-
+import AuthService from "../services/AuthService"
+import useShopStore from "./ShopStore"
 
 interface Address {
     firstline: string,
@@ -34,10 +35,31 @@ const authStore: StateCreator<AuthState & AuthActions, [["zustand/devtools", nev
     token: undefined,
     user: undefined,
     login: async (email: string, password: string) => {
+        try {
+            const { success, token, user } = await AuthService.loginFromApi(email, password);
 
+            if (success) {
+                set({ isAuthenticated: true, token, user }, false, "authStore/login")
+
+                useShopStore.getState().setMessage({
+                    messageText: `Bienvenue ${user.firstname}`,
+                    type: "info"
+                })
+            }
+        } catch(error : any){
+        console.log(error)
+        useShopStore.getState().setMessage({
+            messageText: error.message,
+            type: "error"
+        })
+        }
     },
     logout: () => {
-
+        set({ isAuthenticated: false, token: undefined, user: undefined }, false, "authStore/logout")
+        useShopStore.getState().setMessage({
+            messageText: "Bye bye",
+            type: "info"
+        })
     }
 })
 
