@@ -12,10 +12,7 @@ interface Product
   description: string,
   image: string,
   stock: {
-<<<<<<< HEAD:src/stores/ProductStore.ts
     ref: string,
-=======
->>>>>>> 7a2e4a60aadcec560676241bcf6d147fdd3a5e18:src/store/productStore.ts
     quantity: {
       country: string, 
       value: number

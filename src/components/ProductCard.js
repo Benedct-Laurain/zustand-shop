@@ -4,7 +4,6 @@ import useProductStore from "../stores/ProductStore.ts";
 function ProductCard({ product }) {
   const addToCart = useProductStore((state) => state.addToCart);
   const quantity = product.stock?.quantity?.value;
-  const addToCart = useProductStore((state) => state.addToCart);
 
   const handleClick = () => {
     addToCart(product);
