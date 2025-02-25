@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/zustand-shop/static/css/main.01c553df.css",
+    "main.js": "/zustand-shop/static/js/main.3eb4ee19.js",
+    "static/media/logo.png": "/zustand-shop/static/media/logo.7feb6621573e09d2a6d9.png",
+    "index.html": "/zustand-shop/index.html",
+    "main.01c553df.css.map": "/zustand-shop/static/css/main.01c553df.css.map",
+    "main.3eb4ee19.js.map": "/zustand-shop/static/js/main.3eb4ee19.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.01c553df.css",
+    "static/js/main.3eb4ee19.js"
+  ]
+}
