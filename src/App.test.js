@@ -8,10 +8,9 @@ describe("Given : que l'utilisateur accède à l'application", ()=> {
             render(<App/>);
 
             // Le titre Boutique s'affiche
-            // const titleNode = screen.getByRole("heading", { name: 'Boutique' });
-            const titleNode = await screen.findByText('Boutique');
+            const titleNode = await screen.findByRole("heading", { name: 'Boutique' });
+            // const titleNode = await screen.findByText('Boutique');
             expect(titleNode).toBeInTheDocument();
-            // console.log(titleNode)
         })
     })
 })

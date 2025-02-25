@@ -9,7 +9,6 @@ function CartIcon({ setPage }) {
 
   const itemsNumber =
     items && items.reduce((total, item) => total + item.quantity, 0);
-
   return (
     <button className="btn-cart" onClick={handleGoToCart}>
       Panier ({itemsNumber})
