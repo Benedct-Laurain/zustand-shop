@@ -16,3 +16,9 @@ Challenge 3 :
 2. Y placer l'état isLoading 
 3. Déclencher isLoading shopStore dans la méthode getProducts
 
+
+Challenge 4 : 
+1. Relier le store AuthStore au formulaire de login
+2. Relier le store AuthStore au bouton Se déconnecter
+3. Voir les informations du store dans Redux DevTools
+
