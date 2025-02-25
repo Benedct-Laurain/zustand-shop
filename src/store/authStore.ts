@@ -1,5 +1,7 @@
 import { create, StateCreator } from "zustand"
-import { devtools } from "zustand/middleware"
+import { createJSONStorage, devtools, persist } from "zustand/middleware"
+import authLogger from "./authLogger"
+import customSessionStorage from "./storageAuth"
 
 
 interface Address {
@@ -40,7 +42,25 @@ const authStore: StateCreator<AuthState & AuthActions, [["zustand/devtools", nev
 })
 
 const useAuthStore = create<AuthState & AuthActions>()(
-    devtools(authStore)
+    persist(
+        authLogger(
+            devtools(authStore)
+        ),
+        {
+            name: 'auth-storage', // unique name
+            storage: createJSONStorage(() => customSessionStorage),
+            // onRehydrateStorage: (state) => {
+            //   console.log('hydration starts')
+            //   return (state, error) => {
+            //     if (error) {
+            //       console.log('hydration error:', error)
+            //     } else {
+            //       console.log('hydration finished')
+            //     }
+            //   }
+            // }
+          },
+    )
 );
 
 export default useAuthStore;
